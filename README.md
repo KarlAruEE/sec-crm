@@ -16,12 +16,12 @@ Run Postgres database
 docker run -d --name postgres --network secret-network --ip 10.0.0.2 -e POSTGRES_PASSWORD=secretpassword -e POSTGRES_DB=contacts -p 5432:5432 postgres
 ```
 
-Run Main app
+Run Main app [karlaru/sec-crm (from DockerHub)](https://hub.docker.com/repository/docker/karlaru/sec-crm)
 ```
 docker run -d --network secret-network -p 8080:8080 karlaru/sec-crm
 ```
 
-### Front-end at [localhost:8080](http://localhost:8080)
+### Simple JavaScript Front-end at [localhost:8080](http://localhost:8080)
 
 --- 
 
