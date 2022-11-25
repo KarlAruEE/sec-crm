@@ -39,5 +39,5 @@ curl -X GET http://localhost:8080/api/contacts
 
 Search
 ```
-curl -X GET http://localhost:8080/api/contacts?s=karl
+curl -X GET http://localhost:8080/api/contacts/search/karl
 ```
