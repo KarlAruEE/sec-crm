@@ -1,6 +1,24 @@
 
 ## Super Secret Contact Management System
 
+### Run with Docker Compse
+
+Start
+```
+docker-compose up -d
+```
+
+#### Simple JavaScript Front-end at [localhost:8080](http://localhost:8080)
+
+Stop
+```
+docker-compose down
+```
+
+---
+
+### Manual
+
 (optional) Build docker image after building Maven package (.jar file)
 ```
 docker build -t karlaru/sec-crm .
@@ -21,23 +39,23 @@ Run Main app [karlaru/sec-crm (from DockerHub)](https://hub.docker.com/repositor
 docker run -d --network secret-network -p 8080:8080 karlaru/sec-crm
 ```
 
-### Simple JavaScript Front-end at [localhost:8080](http://localhost:8080)
+#### Simple JavaScript Front-end at [localhost:8080](http://localhost:8080)
 
 --- 
 
 #### Direct API access
 
-POST contact
+POST a contact
 ```
 curl -X POST -H "Content-Type: application/json" -d '{"name": "karl", "codeName": "coden", "phone": "5534"}' http://localhost:8080/api/contacts
 ```
 
-GET contact
+GET all contacts
 ```
 curl -X GET http://localhost:8080/api/contacts
 ```
 
-Search
+Search contact by string over all fields
 ```
-curl -X GET http://localhost:8080/api/contacts/search/karl
+curl -X GET http://localhost:8080/api/contacts/search/{search_string}
 ```
