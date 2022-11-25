@@ -11,5 +11,5 @@ public interface ContactRepository extends CrudRepository<Contact, Long> {
     @Query(value="SELECT c FROM Contact c WHERE  LOWER(c.name)      LIKE LOWER(CONCAT('%', :search,'%')) OR " +
                                                 "LOWER(c.codeName)  LIKE LOWER(CONCAT('%', :search,'%')) OR " +
                                                 "LOWER(c.phone)     LIKE LOWER(CONCAT('%', :search,'%'))")
-    List<Contact> findByAnything(@Param("search") String search);
+    List<Contact> findAnyLikeSearch(@Param("search") String search);
 }
