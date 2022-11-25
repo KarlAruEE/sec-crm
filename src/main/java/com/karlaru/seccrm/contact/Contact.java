@@ -1,18 +1,16 @@
-package com.karlaru.seccrm;
+package com.karlaru.seccrm.contact;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Data
+@ToString
 @Entity
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 public class Contact {
     @Id
     @GeneratedValue

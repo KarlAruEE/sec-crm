@@ -1,4 +1,4 @@
-package com.karlaru.seccrm;
+package com.karlaru.seccrm.contact;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
