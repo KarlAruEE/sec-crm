@@ -47,15 +47,15 @@ docker run -d --network secret-network -p 8080:8080 karlaru/sec-crm
 
 POST a contact
 ```
-curl -X POST -H "Content-Type: application/json" -d '{"name": "karl", "codeName": "coden", "phone": "5534"}' http://localhost:8080/api/contacts
+curl -X POST -H "Content-Type: application/json" -d '{"name": "karl", "codeName": "coden", "phone": "5534"}' http://localhost:8080/api/v1/contacts
 ```
 
 GET all contacts
 ```
-curl -X GET http://localhost:8080/api/contacts
+curl -X GET http://localhost:8080/api/v1/contacts
 ```
 
-Search contact by string over all fields
+Search contact by string (over all fields)
 ```
-curl -X GET http://localhost:8080/api/contacts/search/{search_string}
+curl -X GET http://localhost:8080/api/v1/contacts/search/{search_string}
 ```
