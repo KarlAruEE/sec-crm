@@ -1,6 +1,9 @@
 package com.karlaru.seccrm.contact;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +12,8 @@ import javax.persistence.Id;
 @Data
 @ToString
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Contact {
     @Id
     @GeneratedValue
@@ -20,8 +23,7 @@ public class Contact {
     private String phone;
 
     public Contact(String name, String codeName, String phone) {
-        this.name = name;
-        this.codeName = codeName;
-        this.phone = phone;
+        this(null, name, codeName, phone);
     }
+
 }
