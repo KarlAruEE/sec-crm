@@ -6,6 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @AllArgsConstructor
 @RestController
@@ -22,7 +24,9 @@ public class ContactController {
     @GetMapping(path = "/search/{search}", produces = "application/json")
     public ResponseEntity<Iterable<Contact>> searchContacts(@PathVariable("search") String search){
 
-        Iterable<Contact> result = contactRepository.findAnyLikeSearch(search);
+        String friendlySearch = friendlyString(search);
+
+        Iterable<Contact> result = contactRepository.findAnyLikeSearch(friendlySearch);
         if (result.iterator().hasNext())
             return ResponseEntity.ok(result);
         else
@@ -33,5 +37,11 @@ public class ContactController {
     @ResponseStatus(HttpStatus.CREATED)
     public Contact postContact(@RequestBody Contact contact){
         return contactRepository.save(contact);
+    }
+
+    private static String friendlyString(String value){
+        Pattern pattern = Pattern.compile("[<>$@\"\']");
+        Matcher matcher = pattern.matcher(value);
+        return matcher.replaceAll("");
     }
 }
