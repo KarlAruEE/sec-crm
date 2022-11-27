@@ -59,3 +59,8 @@ Search contact by string (over all fields)
 ```
 curl -X GET http://localhost:8080/api/v1/contacts/search/{search_string}
 ```
+
+### SQL Dump
+```
+docker exec sec-crm_PostgreSQL_1 pg_dump -U postgres postgres --no-owner  > db.sql
+```
